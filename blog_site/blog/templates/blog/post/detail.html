@@ -7,6 +7,11 @@
   </p>
   {# foo|linebreaks renders standard linebreaks like \n to html #}
   {{ post.body|linebreaks }}
+  <p>
+    <a href="{% url "blog:post_share" post.id %}">
+      Share this post
+    </a>
+  </p>
   {# Need to figure out how to return back to the last visited webpage #}
-  <a href="{% url "blog:post_list" %}">Back to post listing</a>
+  <p><a href="{% url "blog:post_list" %}">Back to post listing</a></p>
 {% endblock %}

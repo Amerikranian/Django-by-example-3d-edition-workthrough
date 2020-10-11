@@ -1,7 +1,9 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from .models import Post
+from .forms import EmailPostForm
 
 
 class PostListView(ListView):
@@ -21,6 +23,7 @@ class PostListView(ListView):
 
 # Note: Unless stated otherwise, request is the default function argument, i.e, gets passed to everything inside the views.
 # As such, when documenting parameters, request will be left out unless it will receive specific treatment
+# Also, unless otherwise specified, the methods will return a render request with a specific template
 
 
 def post_list(request):
@@ -60,3 +63,29 @@ def post_detail(request, year, month, day, post):
         publish__day=day,
     )
     return render(request, "blog/post/detail.html", {"post": post})
+
+
+def post_share(request, post_id):
+    """Allows the user to share the post by email
+    Parameters:
+      post_id (int): The id of the post
+    Please note: The post must have the status of 'published' in order to be eligible for sharing
+    """
+    post = get_object_or_404(Post, id=post_id, status="published")
+    sent = False
+    if request.method == "POST":
+        # Form was submited
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Forms passed validation
+            cd = form.cleaned_data
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = f"{cd['name']} recommends you read {post.title}"
+            message = f"Read {post.title} at {post_url}\n\n{cd['name']}'s comments: {cd['comments']}"
+            send_mail(subject, message, "example@gmail.com", (cd["to"],))
+            sent = True
+    else:
+        form = EmailPostForm()
+    return render(
+        request, "blog/post/share.html", {"post": post, "form": form, "sent": sent}
+    )
