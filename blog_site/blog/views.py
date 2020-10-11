@@ -80,8 +80,10 @@ def post_share(request, post_id):
             # Forms passed validation
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = f"{cd['name']} recommends you read {post.title}"
-            message = f"Read {post.title} at {post_url}\n\n{cd['name']}'s comments: {cd['comments']}"
+            subject = f"{cd['name']} ({cd['email']}) recommends you read {post.title}"
+            message = f"Read {post.title} at {post_url}"
+            if cd["comments"]:
+                message += f"\n\n{cd['name']}'s comments: {cd['comments']}"
             send_mail(subject, message, "example@gmail.com", (cd["to"],))
             sent = True
     else:
