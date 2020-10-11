@@ -1,0 +1,20 @@
+{# Load CSS #}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  {# The title block is not filled in intentionally. post/list.html and post/detail.html will change what it is set to #}
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+  <div id="content">
+  {# Main page content block. Will be populated by anything within this application #}
+    {% block content %}{% endblock %}
+  </div>
+  <div id="sidebar">
+    <h2>My blog</h2>
+    <p>Welcome to my blog!</p>
+  </div>
+</body>
+</html>
