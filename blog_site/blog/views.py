@@ -24,7 +24,9 @@ class PostListView(ListView):
 
 
 def post_list(request):
-    """Displays the list of posts, splitting them into pages"""
+    """Displays the list of posts, splitting them into pages
+    Note: This is analogous to PostListView
+    """
     object_list = Post.published.all()
     # We want 3 posts per page
     paginator = Paginator(object_list, 3)
