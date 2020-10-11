@@ -28,3 +28,5 @@ If you are confused as to how to get started with Django, [this link](https://do
 I chose to go with Linux because it (should) save me some hassle when installing packages. The book did mention that you can do it all on Windows, but some things may be more difficult to get working
 ## Do you accept contributions?
 While I appreciate the thought, this is more of a playground for me. I am planning to stick to the book and go back to earlier projects when I learn a new feature. For example, when the book touches upon authorization, I will most likely add it to the blog project and expand it to include user accounts.
+## Repo structure
+Chapter 1: blog_site
