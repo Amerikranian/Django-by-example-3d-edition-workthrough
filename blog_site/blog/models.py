@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(models.Manager):
@@ -25,6 +26,7 @@ class Post(models.Model):
       status (CharField): The current status of the post, limitted to STATUS_CHOICES
       objects (Manager): The default models.Manager object
       published (PublishedManager): Custom object manager which sorts posts by post's status, excluding drafts
+      tags (TaggableManager): A list of tags associated with the post
     Methods:
       get_absolute_url: Constructs and returns a url for the current post
     """
@@ -48,6 +50,7 @@ class Post(models.Model):
     # We have to explicitly add the objects attribute because we create a custom manager for the model
     objects = models.Manager()
     published = PublishedManager()
+    tags = TaggableManager()
 
     class Meta:
         ordering = ("-publish",)

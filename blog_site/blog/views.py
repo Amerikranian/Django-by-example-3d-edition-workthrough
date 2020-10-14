@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm
+from taggit.models import Tag
 
 
 class PostListView(ListView):
@@ -26,11 +27,14 @@ class PostListView(ListView):
 # Also, unless otherwise specified, the methods will return a render request with a specific template
 
 
-def post_list(request):
-    """Displays the list of posts, splitting them into pages
-    Note: This is analogous to PostListView
-    """
+def post_list(request, tag_slug=None):
+    """Displays the list of posts, splitting them into pages"""
     object_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        # Filter the objects by the provided tag
+        object_list = object_list.filter(tags__in=[tag])
     # We want 3 posts per page
     paginator = Paginator(object_list, 3)
     page = request.GET.get("page")
@@ -42,7 +46,9 @@ def post_list(request):
     except EmptyPage:
         # If page is out of range, deliver the last page of posts
         posts = paginator.page(paginator.num_pages)
-    return render(request, "blog/post/list.html", {"page": page, "posts": posts})
+    return render(
+        request, "blog/post/list.html", {"page": page, "posts": posts, "tag": tag}
+    )
 
 
 def post_detail(request, year, month, day, post):
