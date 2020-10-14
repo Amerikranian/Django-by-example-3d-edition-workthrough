@@ -19,7 +19,9 @@ to witness the beauty of code.
 ## Where do I run this?
 I am using a WSL on a windows 10, that is, running Django on WSL and editing files on windows. I strongly recommend you do the same.
 ## Are there any additional Python packages needed to be installed?
-As of now, no. This is very likely to change, however, so keep an eye on this section.
+Below you will find packages split under their respective folder headings so that you may choose to install a particular subset rather than forced to guess at the requirements of a particular project
+### blog_site
+*[Django-taggit](https://pypi.org/project/django-taggit/)
 ## Are there any additional Linux packages needed to be installed?
 As of now, no. This will change in the future, however, so keep an eye on this section.
 ## Wait... What is happening?
