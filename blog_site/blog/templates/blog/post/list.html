@@ -19,6 +19,8 @@
           {# Add a comma after the displayed tag #}
           ,
         {% endif %}
+      {% empty %}
+        None yet
       {% endfor %}
     </p>
     <p class="date">
