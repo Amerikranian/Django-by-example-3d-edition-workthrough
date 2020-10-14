@@ -3,7 +3,7 @@ Contains the code for Django by example third edition
 ## What?
 The book in question can be found [here](https://www.packtpub.com/product/django-3-by-example-third-edition/9781838981952)
 ## How far have you worked through the book?
-Currently the entirety of Chapter 1 is finished. Chapter 2 should follow somewhat shortly
+Currently the entirety of Chapter 2 is finished. Chapter 3 should follow somewhat shortly
 ## CSS?
 All of the CSS is directly from the book and without modification (I was instructed to leave it unmodified)
 ## How do I run this?
@@ -31,4 +31,4 @@ I chose to go with Linux because it (should) save me some hassle when installing
 ## Do you accept contributions?
 While I appreciate the thought, this is more of a playground for me. I am planning to stick to the book and go back to earlier projects when I learn a new feature. For example, when the book touches upon authorization, I will most likely add it to the blog project and expand it to include user accounts.
 ## Repo structure
-Chapter 1: blog_site
+Chapter 1-2: blog_site
