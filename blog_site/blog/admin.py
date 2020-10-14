@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 
 @admin.register(Post)
@@ -18,3 +18,10 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = "publish"
     # Controls in what order posts will be displayed on the model page
     ordering = ("status", "publish")
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "post", "created", "active")
+    list_filter = ("active", "created", "updated")
+    search_fields = ("name", "email", "body")

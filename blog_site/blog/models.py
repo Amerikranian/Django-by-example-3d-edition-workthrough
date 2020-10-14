@@ -60,3 +60,30 @@ class Post(models.Model):
             "blog:post_detail",
             args=[self.publish.year, self.publish.month, self.publish.day, self.slug],
         )
+
+
+class Comment(models.Model):
+    """A model representing comments made by users on posts
+    Attributes:
+      post (ForeignKey to Post): The post on which the comment was made
+      name (CharField): The name of the user who commented on the post
+      email (EmailField): The email address of the user who made the comment concerning the post
+      body (TextField): The contents of the comment
+      create (DateTimeField): The date during which the comment was made
+      updated (DateTimeField): The date during which the comment was edited
+      active (BooleanField): Determines if the comment is visible on the page
+    """
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ("created",)
+
+    def __str__(self):
+        return f"Comment by {self.name} ({self.email}) on {self.post}"
