@@ -33,7 +33,7 @@ def post_list(request, tag_slug=None):
     object_list = Post.published.all()
     tag = None
     if tag_slug:
-        tag = get_object_or_404(Tag, slug=tag_slug)
+        tag = get_object_or_404(Tag, slug__iexact=tag_slug)
         # Filter the objects by the provided tag
         object_list = object_list.filter(tags__in=[tag])
     # We want 3 posts per page
