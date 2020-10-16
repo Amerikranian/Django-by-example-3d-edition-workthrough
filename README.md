@@ -22,6 +22,7 @@ I am using a WSL on a windows 10, that is, running Django on WSL and editing fil
 Below you will find packages split under their respective folder headings so that you may choose to install a particular subset rather than forced to guess at the requirements of a particular project
 ### blog_site
 * [Django-taggit 1.3](https://pypi.org/project/django-taggit/)
+* [markdown 3.3.1](https://pypi.org/project/markdown/)
 ## Are there any additional Linux packages needed to be installed?
 As of now, no. This will change in the future, however, so keep an eye on this section.
 ## Wait... What is happening?
