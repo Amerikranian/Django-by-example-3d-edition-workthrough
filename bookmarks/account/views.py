@@ -1,10 +1,16 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
 
 
-#Used as an exercise to understand account authentication
+@login_required
+def dashboard(request):
+    return render(request, "account/dashboard.html", {"section": "dashboard"})
+
+
+# Used as an exercise to understand account authentication
 def user_login(request):
     """Attempts to validate the entered cridentials and log in a user if they are valid, displaying any errors that may arise as a result"""
     if request.method == "POST":
