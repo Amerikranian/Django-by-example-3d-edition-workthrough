@@ -1,22 +1,12 @@
-from django.urls import path
+from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
     # Old and depricated login view
     # path("login/", views.user_login, name="login"),
-    # Note: Default django authentication views expect their templates to be in templates/registration/
-    path("login/", auth_views.LoginView.as_view(), name="login"),
-    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
-    path(
-        "password_change/",
-        auth_views.PasswordChangeView.as_view(),
-        name="password_change",
-    ),
-    path(
-        "password_change/done/",
-        auth_views.PasswordChangeDoneView.as_view(),
-        name="password_change_done",
-    ),
     path("", views.dashboard, name="dashboard"),
+    # Note: Default django authentication views expect their templates to be in templates/registration/
+    # Full list of included urls is at https://github.com/django/django/blob/stable/3.0.x/django/contrib/auth/urls.py
+    path("", include("django.contrib.auth.urls")),
 ]
