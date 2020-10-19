@@ -23,6 +23,8 @@ Below you will find packages split under their respective folder headings so tha
 ### blog_site
 * [Django-taggit 1.3](https://pypi.org/project/django-taggit/)
 * [markdown 3.3.1](https://pypi.org/project/markdown/)
+### Bookmarks
+* [social-auth-app-django 4.0](https://pypi.org/project/social-auth-app-django/)
 ## Wait... What is happening?
 If you are confused as to how to get started with Django, [this link](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) should clear some things up for you. If you do not know how to install WSL, I recommend googling your issue. Better yet, [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will show you everything you need to know. If you are confused on how to use Linux, that is out of my jurisdiction.
 ## Why WSL?
