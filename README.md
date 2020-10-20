@@ -32,9 +32,11 @@ Below you will find packages split under their respective folder headings so tha
 Below you may find variations on your typical 
 ```
 python manage.py runserver
-``` command. Some of the changes are do to what the project is attempting to do, i.e, authenticate with [Twitter](https://twitter.com/) and [Facebook.](https://www.facebook.com/) As usual, this is organized by folder
+```
+command. Some of the changes are do to what the project is attempting to do, i.e, authenticate with [Twitter](https://twitter.com/) and [Facebook.](https://www.facebook.com/) As usual, this is organized by folder
 ### Bookmarks
-Note: Be sure to edit SOCIAL_AUTH constants with your own keys and secrets, as right now the services will not work.
+Note: Be sure to edit SOCIAL_AUTH constants with your own keys and secrets, as right now the services will not work.  
+A second note: Be sure to edit your hosts file (/etc/hosts) on Linux and C:\Windows\System32\drivers\etc\hosts on windows to include the line "127.0.0.1 mysite.com" (without the quotation marks) to allow https connection to mysite.com. Some authentication services do not allow you to be redirected to localhost. You can change your domain to something else, you will need to adjust ALLOWED_HOSTS in settings.py to make it work properly, however.
 ```
 python manage.py runserver_plus --cert-file cert.crt
 ```
@@ -45,4 +47,5 @@ I chose to go with Linux because it (should) save me some hassle when installing
 ## Do you accept contributions?
 While I appreciate the thought, this is more of a playground for me. I am planning to stick to the book and go back to earlier projects when I learn a new feature. For example, when the book touches upon authorization, I will most likely add it to the blog project and expand it to include user accounts.
 ## Repo structure
-Chapter 1-3: blog_site
+* Chapter 1-3: blog_site
+* Chapter 4: bookmarks
