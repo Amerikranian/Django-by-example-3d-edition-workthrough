@@ -3,7 +3,7 @@ Contains the code for Django by example third edition
 ## What?
 The book in question can be found [here](https://www.packtpub.com/product/django-3-by-example-third-edition/9781838981952)
 ## How far have you worked through the book?
-Currently the entirety of Chapter 3 is finished. Chapter 4 should follow sometime soon
+Currently the entirety of Chapter 4 is finished. Chapter 5 should follow sometime soon
 ## CSS?
 All of the CSS is directly from the book and without modification (I was instructed to leave it unmodified)
 ## How do I run this?
@@ -29,10 +29,15 @@ Below you will find packages split under their respective folder headings so tha
 * [werkzeug 1.0.1](https://pypi.org/project/werkzeug/)
 * [pyOpenSSL 19.1.0](https://pypi.org/project/pyopenssl/)
 ## Special project running notes
-Below you may find variations on your typical ```python manage.py runserver``` command. Some of the changes are do to what the project is attempting to do, i.e, authenticate with [Twitter](https://twitter.com/) and [Facebook](https://www.facebook.com/). As usual, this is organized by folder
+Below you may find variations on your typical 
+```
+python manage.py runserver
+``` command. Some of the changes are do to what the project is attempting to do, i.e, authenticate with [Twitter](https://twitter.com/) and [Facebook.](https://www.facebook.com/) As usual, this is organized by folder
 ### Bookmarks
 Note: Be sure to edit SOCIAL_AUTH constants with your own keys and secrets, as right now the services will not work.
-```python manage.py runserver_plus --cert-file cert.crt```
+```
+python manage.py runserver_plus --cert-file cert.crt
+```
 ## Wait... What is happening?
 If you are confused as to how to get started with Django, [this link](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) should clear some things up for you. If you do not know how to install WSL, I recommend googling your issue. Better yet, [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will show you everything you need to know. If you are confused on how to use Linux, that is out of my jurisdiction.
 ## Why WSL?
