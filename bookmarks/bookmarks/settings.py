@@ -26,7 +26,7 @@ SECRET_KEY = "-of00%o2+5574sh2s7m(sb2ob5oha#uwk99e@qusrj2184aahb"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "social_django",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -130,7 +132,19 @@ LOGOUT_URL = "logout"
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "account.authentication.EmailAuthBackend",
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.twitter.TwitterOAuth",
+    "social_core.backends.google.GoogleOAuth2",
 ]
+
+# Authentication key settings
+
+SOCIAL_AUTH_FACEBOOK_KEY = "FacebookAppKey"
+SOCIAL_AUTH_FACEBOOK_SECRET = "FacebookAppSecret"
+SOCIAL_AUTH_TWITTER_KEY = "TwitterAppKey"
+SOCIAL_AUTH_TWITTER_SECRET = "TwitterAppSecret"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "GoogleOAuth2Key"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "GoogleOAuth2Secret"
 
 # Email settings
 

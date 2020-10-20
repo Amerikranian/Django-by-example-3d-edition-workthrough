@@ -25,6 +25,14 @@ Below you will find packages split under their respective folder headings so tha
 * [markdown 3.3.1](https://pypi.org/project/markdown/)
 ### Bookmarks
 * [social-auth-app-django 4.0](https://pypi.org/project/social-auth-app-django/)
+* [django-extensions 3.0.9](https://pypi.org/project/django-extensions/)
+* [werkzeug 1.0.1](https://pypi.org/project/werkzeug/)
+* [pyOpenSSL 19.1.0](https://pypi.org/project/pyopenssl/)
+## Special project running notes
+Below you may find variations on your typical ```python manage.py runserver``` command. Some of the changes are do to what the project is attempting to do, i.e, authenticate with [Twitter](https://twitter.com/) and [Facebook](https://www.facebook.com/). As usual, this is organized by folder
+### Bookmarks
+Note: Be sure to edit SOCIAL_AUTH constants with your own keys and secrets, as right now the services will not work.
+```python manage.py runserver_plus --cert-file cert.crt```
 ## Wait... What is happening?
 If you are confused as to how to get started with Django, [this link](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) should clear some things up for you. If you do not know how to install WSL, I recommend googling your issue. Better yet, [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will show you everything you need to know. If you are confused on how to use Linux, that is out of my jurisdiction.
 ## Why WSL?
